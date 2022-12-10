@@ -107,11 +107,11 @@ public class Movement : MonoBehaviour
         {
             if (rb.velocity.x < 0 )
             {
-                this.gameObject.transform.localScale = new Vector2(-0.341f, this.gameObject.transform.localScale.y);
+                this.gameObject.transform.localScale = new Vector2(-1.5f, this.gameObject.transform.localScale.y);
             }
             else if(rb.velocity.x> 0)
             {
-                this.gameObject.transform.localScale = new Vector2(0.341f, this.gameObject.transform.localScale.y);
+                this.gameObject.transform.localScale = new Vector2(1.5f, this.gameObject.transform.localScale.y);
             }
         }
 
