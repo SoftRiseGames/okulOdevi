@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesafe: 0
-  DistanceVeriable: 3.45
+  DistanceVeriable: 14.96
 --- !u!50 &198366001
 Rigidbody2D:
   serializedVersion: 4

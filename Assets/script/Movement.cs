@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         hookground = true;
+        axisanim = true;
     }
 
     // Update is called once per frame
@@ -43,13 +44,14 @@ public class Movement : MonoBehaviour
         Jump();
         hookExens();
         Dash(xRaw);
-       
+        Sallanma();
       
     }
     
     void Update()
     {
-        charExens(); 
+        charExens();
+        //Sallanma();
     }
     
     private void OnCollisionStay2D(Collision2D collision)
@@ -97,5 +99,22 @@ public class Movement : MonoBehaviour
             else if (horizontal > 0 && this.gameObject.transform.localScale.x < 0)
                 this.gameObject.transform.localScale = new Vector2(this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y);
         }
+    }
+
+    void Sallanma()
+    {
+        if (!axisanim)
+        {
+            if (rb.velocity.x < 0 )
+            {
+                this.gameObject.transform.localScale = new Vector2(-0.341f, this.gameObject.transform.localScale.y);
+            }
+            else if(rb.velocity.x> 0)
+            {
+                this.gameObject.transform.localScale = new Vector2(0.341f, this.gameObject.transform.localScale.y);
+            }
+        }
+
+
     }
 }

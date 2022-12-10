@@ -42,12 +42,6 @@ public class kancaSistemi : MonoBehaviour
             lr.SetPosition(0, transform.position);
             lr.SetPosition(1, selectednode.transform.position);
         }
-
-        if (!moveCont.hookground)
-        {
-            kancascale(selectednode);
-        }
-    
     }
     public void SelectNode(Node node)
     {
@@ -67,13 +61,5 @@ public class kancaSistemi : MonoBehaviour
         moveCont.hookground = true;
         moveCont.hookjumped = true;
     }
-    public void kancascale(Node node)
-    {
-        /*
-        if (this.gameObject.transform.position.x > node.gameObject.transform.position.x && this.gameObject.transform.localScale.x < 0f)
-            this.gameObject.transform.localScale = new Vector2(this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y);
-        else if (this.gameObject.transform.position.x <node.gameObject.transform.position.x && this.gameObject.transform.localScale.x >= 0f)
-            this.gameObject.transform.localScale = new Vector2(this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y);
-    */  
-    }
+   
 }
