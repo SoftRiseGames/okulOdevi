@@ -13,15 +13,18 @@ public class Movement : MonoBehaviour
     public bool axisanim;
     private bool dashBool;
     [Header("MovementSettings")]
-    [SerializeField] float speedX;
+    private float speedX;
     [SerializeField] float jumpY;
     [SerializeField] float xRaw;
+    [SerializeField] float walkinSpeed;
+    [SerializeField] float dashSpeed;
     private float hookafterMovement;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         hookground = true;
         axisanim = true;
+        speedX = walkinSpeed;
     }
 
     // Update is called once per frame
@@ -39,19 +42,16 @@ public class Movement : MonoBehaviour
         //normal kontroller
 
         else if (hookground && !hookjumped)
-            rb.velocity = new Vector2(speedX * horizontal, rb.velocity.y);
+            rb.velocity = new Vector2(walkinSpeed * horizontal, rb.velocity.y);
 
         Jump();
         hookExens();
-        Dash(xRaw);
         Sallanma();
-      
     }
     
     void Update()
     {
         charExens();
-        //Sallanma();
     }
     
     private void OnCollisionStay2D(Collision2D collision)
@@ -60,21 +60,7 @@ public class Movement : MonoBehaviour
             ground = true; hookjumped = false; dashBool = true;
         axisanim = true;
     }
-    public void Dash(float x)
-    {
-        
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            if (!ground && dashBool)
-            {
-                rb.velocity = Vector2.zero;
-                rb.velocity = new Vector2(x, rb.velocity.y).normalized * 300;
-                dashBool = false;
-            }
-        }
-
-       
-    }
+  
     void Jump()
     {
         if (Input.GetKey(KeyCode.W) && ground)
@@ -108,10 +94,12 @@ public class Movement : MonoBehaviour
             if (rb.velocity.x < 0 )
             {
                 this.gameObject.transform.localScale = new Vector2(-1.5f, this.gameObject.transform.localScale.y);
+                Debug.Log("left");
             }
-            else if(rb.velocity.x> 0)
+            else if(rb.velocity.x>= 0)
             {
                 this.gameObject.transform.localScale = new Vector2(1.5f, this.gameObject.transform.localScale.y);
+                Debug.Log("right");
             }
         }
 
