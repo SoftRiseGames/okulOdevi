@@ -93,13 +93,21 @@ public class Movement : MonoBehaviour
         {
             if (rb.velocity.x < 0 )
             {
+<<<<<<< HEAD
                 this.gameObject.transform.localScale = new Vector2(-1.5f, this.gameObject.transform.localScale.y);
                 Debug.Log("left");
+=======
+                this.gameObject.transform.localScale = new Vector2(-0.341f, this.gameObject.transform.localScale.y);
+>>>>>>> parent of 704fb9b (last)
             }
             else if(rb.velocity.x>= 0)
             {
+<<<<<<< HEAD
                 this.gameObject.transform.localScale = new Vector2(1.5f, this.gameObject.transform.localScale.y);
                 Debug.Log("right");
+=======
+                this.gameObject.transform.localScale = new Vector2(0.341f, this.gameObject.transform.localScale.y);
+>>>>>>> parent of 704fb9b (last)
             }
         }
 
