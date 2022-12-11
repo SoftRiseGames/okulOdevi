@@ -95,8 +95,12 @@ public class Movement : MonoBehaviour
             {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 this.gameObject.transform.localScale = new Vector2(-1.5f, this.gameObject.transform.localScale.y);
                 Debug.Log("left");
+=======
+                this.gameObject.transform.localScale = new Vector2(-0.341f, this.gameObject.transform.localScale.y);
+>>>>>>> parent of 704fb9b (last)
 =======
                 this.gameObject.transform.localScale = new Vector2(-0.341f, this.gameObject.transform.localScale.y);
 >>>>>>> parent of 704fb9b (last)
@@ -108,8 +112,12 @@ public class Movement : MonoBehaviour
             {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 this.gameObject.transform.localScale = new Vector2(1.5f, this.gameObject.transform.localScale.y);
                 Debug.Log("right");
+=======
+                this.gameObject.transform.localScale = new Vector2(0.341f, this.gameObject.transform.localScale.y);
+>>>>>>> parent of 704fb9b (last)
 =======
                 this.gameObject.transform.localScale = new Vector2(0.341f, this.gameObject.transform.localScale.y);
 >>>>>>> parent of 704fb9b (last)
