@@ -7,33 +7,34 @@ public class Dash : MonoBehaviour
     bool hasDashed;
     public Rigidbody2D rb;
     public float dashSpeed;
+    public Movement moveCodes;
     float xRaw;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        moveCodes = GameObject.Find("karakter").GetComponent<Movement>();
+        hasDashed = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        xRaw = Input.GetAxisRaw("Horizontal");
-        if (Input.GetKey(KeyCode.LeftShift) )
-            Dashfunc(xRaw);
+        if (Input.GetKeyDown(KeyCode.LeftShift) && hasDashed && moveCodes.hookground)
+            StartCoroutine(Dashwait());
     }
-    private void Dashfunc(float x)
-    {
-        hasDashed = true;
-        rb.velocity = Vector2.zero;
-        Vector2 dir = new Vector2(x,rb.velocity.y);
-        Debug.Log(xRaw);
-        Debug.Log("dash");
-        rb.velocity += dir.normalized * dashSpeed;
-        StartCoroutine(Dashwait());
-    }
+    
     IEnumerator Dashwait()
     {
-        yield return new WaitForSeconds(.3f);
+        Debug.Log("girdi");
         hasDashed = false;
-        
+        moveCodes.dashCont = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * 30, 0);
+        yield return new WaitForSeconds(.1f);
+        rb.gravityScale = 1f;
+        moveCodes.dashCont = false;
+        hasDashed = true;
     }
+   
 }

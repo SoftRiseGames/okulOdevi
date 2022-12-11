@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float jumpY;
     [SerializeField] float xRaw;
     [SerializeField] float walkinSpeed;
-    [SerializeField] float dashSpeed;
+    public bool dashCont;
     private float hookafterMovement;
     void Start()
     {
@@ -36,14 +36,14 @@ public class Movement : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
 
         //afterHook
-        if (hookground && hookjumped && !ground)
+        if (hookground && hookjumped && !ground && !dashCont)
             rb.velocity = new Vector2(5 * hookafterMovement, rb.velocity.y);
 
         //normal kontroller
-
-        else if (hookground && !hookjumped)
+        
+        else if (hookground && !hookjumped && !dashCont)
             rb.velocity = new Vector2(walkinSpeed * horizontal, rb.velocity.y);
-
+        
         Jump();
         hookExens();
         Sallanma();

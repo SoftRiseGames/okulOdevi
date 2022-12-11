@@ -979,7 +979,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847790424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0002, y: -0.92, z: 2.57}
+  m_LocalPosition: {x: -2.0002, y: -3.64, z: 2.57}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1003,7 +1003,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 2.2016358
+  m_Distance: 4.1533604
   m_MaxDistanceOnly: 0
 --- !u!50 &1847790428
 Rigidbody2D:
@@ -1024,8 +1024,8 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 024bc5374baeb8b4da426e4a0ed09208, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &1847790429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,7 +1157,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.009852067, y: -0.009852171}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1168,7 +1168,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.46798405, y: 0.5073929}
   m_EdgeRadius: 0
 --- !u!114 &1847790432
 MonoBehaviour:
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   jumpY: 5.74
   xRaw: 0
   walkinSpeed: 8.26
-  dashSpeed: 232.77
+  dashCont: 0
 --- !u!114 &1847790433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,4 +1205,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  dashSpeed: 3e+19
+  dashSpeed: 0
+  moveCodes: {fileID: 0}
