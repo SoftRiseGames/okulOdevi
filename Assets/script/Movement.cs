@@ -28,17 +28,17 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-   
+
     private void FixedUpdate()
     {
         //exenKontroller;
         xRaw = Input.GetAxisRaw("Horizontal");
         horizontal = Input.GetAxis("Horizontal");
-        
+
         //afterHook
         if (hookground && hookjumped && !ground)
             rb.velocity = new Vector2(5 * hookafterMovement, rb.velocity.y);
-        
+
         //normal kontroller
 
         else if (hookground && !hookjumped)
@@ -48,19 +48,19 @@ public class Movement : MonoBehaviour
         hookExens();
         Sallanma();
     }
-    
+
     void Update()
     {
         charExens();
     }
-    
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "zemin")
             ground = true; hookjumped = false; dashBool = true;
         axisanim = true;
     }
-  
+
     void Jump()
     {
         if (Input.GetKey(KeyCode.W) && ground)
@@ -91,42 +91,17 @@ public class Movement : MonoBehaviour
     {
         if (!axisanim)
         {
-            if (rb.velocity.x < 0 )
+            if (rb.velocity.x < 0)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                 this.gameObject.transform.localScale = new Vector2(-1.5f, this.gameObject.transform.localScale.y);
                 Debug.Log("left");
-=======
-                this.gameObject.transform.localScale = new Vector2(-0.341f, this.gameObject.transform.localScale.y);
->>>>>>> parent of 704fb9b (last)
-=======
-                this.gameObject.transform.localScale = new Vector2(-0.341f, this.gameObject.transform.localScale.y);
->>>>>>> parent of 704fb9b (last)
-=======
-                this.gameObject.transform.localScale = new Vector2(-0.341f, this.gameObject.transform.localScale.y);
->>>>>>> parent of 704fb9b (last)
+
             }
-            else if(rb.velocity.x>= 0)
+            else if (rb.velocity.x >= 0)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 this.gameObject.transform.localScale = new Vector2(1.5f, this.gameObject.transform.localScale.y);
-                Debug.Log("right");
-=======
-                this.gameObject.transform.localScale = new Vector2(0.341f, this.gameObject.transform.localScale.y);
->>>>>>> parent of 704fb9b (last)
-=======
-                this.gameObject.transform.localScale = new Vector2(0.341f, this.gameObject.transform.localScale.y);
->>>>>>> parent of 704fb9b (last)
-=======
-                this.gameObject.transform.localScale = new Vector2(0.341f, this.gameObject.transform.localScale.y);
->>>>>>> parent of 704fb9b (last)
             }
         }
-
-
     }
 }
