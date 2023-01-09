@@ -34,7 +34,11 @@ public class Dash : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         rb.gravityScale = 1f;
         moveCodes.dashCont = false;
-        hasDashed = true;
     }
-   
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "zemin")
+            hasDashed = true;
+    }
+
 }
