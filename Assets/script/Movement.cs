@@ -97,7 +97,6 @@ public class Movement : MonoBehaviour
         {
             if (rb.velocity.x < 0)
             {
-
                 this.gameObject.transform.localScale = new Vector2(-1.5f, this.gameObject.transform.localScale.y);
                 Debug.Log("left");
 
