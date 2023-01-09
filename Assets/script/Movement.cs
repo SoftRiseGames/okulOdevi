@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     private bool dashBool;
     [Header("MovementSettings")]
     private float speedX;
-    [SerializeField] float jumpY;
+    public float jumpY;
     [SerializeField] float xRaw;
     [SerializeField] float walkinSpeed;
     public bool dashCont;
@@ -42,8 +42,8 @@ public class Movement : MonoBehaviour
         //normal kontroller
         
         else if (hookground && !hookjumped && !dashCont)
-            rb.velocity = new Vector2(walkinSpeed * horizontal, rb.velocity.y);
-        
+            rb.velocity = new Vector2(walkinSpeed * horizontal*Time.deltaTime, rb.velocity.y);
+
         Jump();
         hookExens();
         Sallanma();
@@ -52,6 +52,20 @@ public class Movement : MonoBehaviour
     void Update()
     {
         charExens();
+       
+
+       
+    }
+    void charwalkanim()
+    {
+        if (horizontal > 0 || horizontal < 0)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -65,14 +79,7 @@ public class Movement : MonoBehaviour
         ground = true;
     }
 
-    void Jump()
-    {
-        if (Input.GetKey(KeyCode.W) && ground)
-        {
-            ground = false;
-            rb.velocity = new Vector2(rb.velocity.x, jumpY);
-        }
-    }
+   
     void hookExens()
     {
         if (this.gameObject.transform.localScale.x >= 0)
@@ -90,7 +97,14 @@ public class Movement : MonoBehaviour
                 this.gameObject.transform.localScale = new Vector2(this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y);
         }
     }
-
+    void Jump()
+    {
+        if (Input.GetKey(KeyCode.W) && ground)
+        {
+            ground = false;
+            rb.velocity = transform.up * jumpY * Time.deltaTime;
+        }
+    }
     void Sallanma()
     {
         if (!axisanim)
