@@ -44,7 +44,10 @@ public class Movement : MonoBehaviour
         else if (hookground && !hookjumped && !dashCont)
             rb.velocity = new Vector2(walkinSpeed * horizontal*Time.deltaTime, rb.velocity.y);
 
-        Jump();
+        if (ground)
+            Jump();
+      
+
         hookExens();
         Sallanma();
     }
@@ -52,9 +55,6 @@ public class Movement : MonoBehaviour
     void Update()
     {
         charExens();
-       
-
-       
     }
     void charwalkanim()
     {
@@ -76,10 +76,16 @@ public class Movement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ground = true;
+       
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "zemin")
+        {
+            
+        }
     }
 
-   
     void hookExens()
     {
         if (this.gameObject.transform.localScale.x >= 0)
@@ -99,9 +105,8 @@ public class Movement : MonoBehaviour
     }
     void Jump()
     {
-        if (Input.GetKey(KeyCode.W) && ground)
+        if (Input.GetKey(KeyCode.W))
         {
-            ground = false;
             rb.velocity = transform.up * jumpY * Time.deltaTime;
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JumpCont : MonoBehaviour
 {
-    public Movement ground;
+    public Movement character;
     public Rigidbody2D rbchar;
 
     void Start()
@@ -13,9 +13,18 @@ public class JumpCont : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-       
+        if (collision.gameObject.tag == "zemin")
+            character.ground = true;
     }
-  
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "zemin")
+            character.ground = false;
+    }
+
+    
+
 }
