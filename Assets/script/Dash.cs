@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Dash : MonoBehaviour
 {
-    bool hasDashed;
+    public bool hasDashed;
     public Rigidbody2D rb;
     public float dashSpeed;
     public Movement moveCodes;
-    float xRaw;
+   
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,10 +35,6 @@ public class Dash : MonoBehaviour
         rb.gravityScale = 1f;
         moveCodes.dashCont = false;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "zemin")
-            hasDashed = true;
-    }
+   
 
 }

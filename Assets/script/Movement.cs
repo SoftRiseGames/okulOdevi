@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     private float horizontal;
@@ -11,11 +11,11 @@ public class Movement : MonoBehaviour
     public bool hookjumped;
     public bool afterMoveCont;
     public bool axisanim;
-    private bool dashBool;
+    
     [Header("MovementSettings")]
-    private float speedX;
+    
     public float jumpY;
-    [SerializeField] float xRaw;
+    
     [SerializeField] float walkinSpeed;
     public bool dashCont;
     private float hookafterMovement;
@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         hookground = true;
         axisanim = true;
-        speedX = walkinSpeed;
+        
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         //exenKontroller;
-        xRaw = Input.GetAxisRaw("Horizontal");
+       
         horizontal = Input.GetAxis("Horizontal");
 
         //afterHook
@@ -68,23 +68,18 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "TriggerNextLevel")
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "zemin")
-            hookjumped = false; dashBool = true;
+            hookjumped = false; 
         axisanim = true;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-       
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "zemin")
-        {
-            
-        }
-    }
+    } 
 
     void hookExens()
     {
