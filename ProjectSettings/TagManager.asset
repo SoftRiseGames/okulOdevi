@@ -6,7 +6,6 @@ TagManager:
   tags:
   - boulder
   - zemin
-  - TriggerNextLevel
   layers:
   - Default
   - TransparentFX
