@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     public bool hookjumped;
     public bool afterMoveCont;
     public bool axisanim;
-    
+    public Animator anim;
     [Header("MovementSettings")]
     
     public float jumpY;
@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         hookground = true;
         axisanim = true;
+        anim = GetComponent<Animator>();
         
     }
 
@@ -50,21 +51,32 @@ public class Movement : MonoBehaviour
 
         hookExens();
         Sallanma();
+
     }
 
     void Update()
     {
+        charwalkanim();
         charExens();
     }
     void charwalkanim()
     {
         if (horizontal > 0 || horizontal < 0)
         {
-
+            anim.SetBool("isWalk", true);
         }
         else
         {
+            anim.SetBool("isWalk", false);
+        }
 
+        if (rb.velocity.y > 0)
+        {
+            anim.SetBool("isJump", true);
+        }
+        else
+        {
+            anim.SetBool("isJump", false);
         }
     }
 

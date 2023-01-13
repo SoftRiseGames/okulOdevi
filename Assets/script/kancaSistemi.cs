@@ -47,7 +47,7 @@ public class kancaSistemi : MonoBehaviour
     {
         selectednode = node;
         moveCont.axisanim = false;
-        moveCont.hookground = false;
+        
         moveCont.hookjumped = false;
         //this.gameObject.transform.parent = selectednode.transform;
         Debug.Log(this.gameObject.transform.position.x);
@@ -58,7 +58,7 @@ public class kancaSistemi : MonoBehaviour
         moveCont.axisanim = true;
         selectednode = null;
         //this.gameObject.transform.parent = null;
-        moveCont.hookground = true;
+        
         moveCont.hookjumped = true;
         this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
     }
