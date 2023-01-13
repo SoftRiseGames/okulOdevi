@@ -11,11 +11,11 @@ public class Movement : MonoBehaviour
     public bool hookjumped;
     public bool afterMoveCont;
     public bool axisanim;
-<<<<<<< HEAD
+
     public Animator anim;
-=======
+
     private bool dashBool;
->>>>>>> parent of 315986d (lightsEnd)
+
     [Header("MovementSettings")]
     private float speedX;
     public float jumpY;
@@ -28,12 +28,11 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         hookground = true;
         axisanim = true;
-<<<<<<< HEAD
         anim = GetComponent<Animator>();
         
-=======
+
         speedX = walkinSpeed;
->>>>>>> parent of 315986d (lightsEnd)
+
     }
 
     // Update is called once per frame
